@@ -1,4 +1,10 @@
-// The global variable
+// The variable watchList holds an array of objects with information on several movies. 
+// Use reduce to find the average IMDB rating of the movies directed by Christopher Nolan. 
+// You may need to create other variables, and return the average rating from getRating function.
+// Note that the rating values are saved as strings in the object and need to be converted
+// into numbers before they are used in any mathematical operations.
+
+
 const watchList = [
   {
     "Title": "Inception",
@@ -113,12 +119,9 @@ const watchList = [
 ];
 
 function getRating(watchList) {
-  // Only change code below this line
   let f = watchList.filter((e)=> e.Director == "Christopher Nolan").map((e)=> e.imdbRating);
-  let averageRating = f.reduce(function getSum(total, num) {num=parseFloat(num); return (total + num)}, 0);
-
-  // Only change code above this line
-  return averageRating / f.length;
+  let averageRating = f.reduce(function getSum(total, num) {num=parseFloat(num); return (total + num)}, 0) / f.length;
+  return averageRating;
 }
 
 console.log(getRating(watchList));
